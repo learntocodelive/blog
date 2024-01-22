@@ -1,0 +1,556 @@
+openapi: 3.0.3
+info:
+  title: Base API Docs
+  version: 1.0.0
+  description: Your project description
+paths:
+  /base/blocks/:
+    get:
+      operationId: base_blocks_list
+      tags:
+      - base
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Block'
+          description: ''
+    post:
+      operationId: base_blocks_create
+      tags:
+      - base
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Block'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Block'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Block'
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Block'
+          description: ''
+  /base/blocks/{id}/:
+    get:
+      operationId: base_blocks_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this block.
+        required: true
+      tags:
+      - base
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Block'
+          description: ''
+    put:
+      operationId: base_blocks_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this block.
+        required: true
+      tags:
+      - base
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Block'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Block'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Block'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Block'
+          description: ''
+    patch:
+      operationId: base_blocks_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this block.
+        required: true
+      tags:
+      - base
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedBlock'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedBlock'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedBlock'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Block'
+          description: ''
+    delete:
+      operationId: base_blocks_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this block.
+        required: true
+      tags:
+      - base
+      responses:
+        '204':
+          description: No response body
+  /base/courses/:
+    get:
+      operationId: base_courses_list
+      tags:
+      - base
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Course'
+          description: ''
+    post:
+      operationId: base_courses_create
+      tags:
+      - base
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Course'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Course'
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+          description: ''
+  /base/courses/{id}/:
+    get:
+      operationId: base_courses_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this course.
+        required: true
+      tags:
+      - base
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+          description: ''
+    put:
+      operationId: base_courses_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this course.
+        required: true
+      tags:
+      - base
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Course'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Course'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+          description: ''
+    patch:
+      operationId: base_courses_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this course.
+        required: true
+      tags:
+      - base
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCourse'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCourse'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCourse'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+          description: ''
+    delete:
+      operationId: base_courses_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this course.
+        required: true
+      tags:
+      - base
+      responses:
+        '204':
+          description: No response body
+  /base/topics/:
+    get:
+      operationId: base_topics_list
+      tags:
+      - base
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Topic'
+          description: ''
+    post:
+      operationId: base_topics_create
+      tags:
+      - base
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Topic'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Topic'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Topic'
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Topic'
+          description: ''
+  /base/topics/{id}/:
+    get:
+      operationId: base_topics_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this topic.
+        required: true
+      tags:
+      - base
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Topic'
+          description: ''
+    put:
+      operationId: base_topics_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this topic.
+        required: true
+      tags:
+      - base
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Topic'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Topic'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Topic'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Topic'
+          description: ''
+    patch:
+      operationId: base_topics_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this topic.
+        required: true
+      tags:
+      - base
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedTopic'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedTopic'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedTopic'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Topic'
+          description: ''
+    delete:
+      operationId: base_topics_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this topic.
+        required: true
+      tags:
+      - base
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    Block:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_date:
+          type: string
+          format: date-time
+          readOnly: true
+        modified_date:
+          type: string
+          format: date-time
+          readOnly: true
+        title:
+          type: string
+          maxLength: 100
+        message:
+          type: string
+        code:
+          type: string
+        tips:
+          type: string
+        topic:
+          type: integer
+      required:
+      - code
+      - created_date
+      - id
+      - message
+      - modified_date
+      - tips
+      - title
+      - topic
+    Course:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        owner:
+          type: string
+        created_date:
+          type: string
+          format: date-time
+          readOnly: true
+        modified_date:
+          type: string
+          format: date-time
+          readOnly: true
+        title:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        is_public:
+          type: boolean
+      required:
+      - created_date
+      - description
+      - id
+      - modified_date
+      - owner
+      - title
+    PatchedBlock:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_date:
+          type: string
+          format: date-time
+          readOnly: true
+        modified_date:
+          type: string
+          format: date-time
+          readOnly: true
+        title:
+          type: string
+          maxLength: 100
+        message:
+          type: string
+        code:
+          type: string
+        tips:
+          type: string
+        topic:
+          type: integer
+    PatchedCourse:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        owner:
+          type: string
+        created_date:
+          type: string
+          format: date-time
+          readOnly: true
+        modified_date:
+          type: string
+          format: date-time
+          readOnly: true
+        title:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        is_public:
+          type: boolean
+    PatchedTopic:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_date:
+          type: string
+          format: date-time
+          readOnly: true
+        modified_date:
+          type: string
+          format: date-time
+          readOnly: true
+        title:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        course:
+          type: integer
+    Topic:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_date:
+          type: string
+          format: date-time
+          readOnly: true
+        modified_date:
+          type: string
+          format: date-time
+          readOnly: true
+        title:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        course:
+          type: integer
+      required:
+      - course
+      - created_date
+      - description
+      - id
+      - modified_date
+      - title
